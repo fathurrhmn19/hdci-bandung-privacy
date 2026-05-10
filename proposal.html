@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proposal Pengembangan Aplikasi — HDCI Bandung</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700;800&display=swap');
+
+    :root {
+      --orange: #E88030;
+      --orange-light: #F5A055;
+      --orange-dim: rgba(232,128,48,0.12);
+      --dark: #1A1A1A;
+      --charcoal: #242424;
+      --charcoal-light: #2E2E2E;
+      --white: #FFFFFF;
+      --muted: #888;
+      --border: rgba(255,255,255,0.08);
+      --success: #4CAF8A;
+      --info: #5BA4CF;
+      --gold: #F5C018;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #111;
+      color: var(--white);
+      line-height: 1.6;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ── COVER ── */
+    .cover {
+      min-height: 100vh;
+      background: linear-gradient(145deg, #1A1A1A 0%, #242424 60%, #1e1306 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(232,128,48,0.18) 0%, transparent 70%);
+      top: -200px; right: -200px;
+      border-radius: 50%;
+    }
+
+    .cover::after {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(232,128,48,0.10) 0%, transparent 70%);
+      bottom: -150px; left: -100px;
+      border-radius: 50%;
+    }
+
+    .cover-inner { position: relative; z-index: 1; max-width: 780px; }
+
+    .badge-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--orange-dim);
+      border: 1px solid rgba(232,128,48,0.35);
+      border-radius: 50px;
+      padding: 6px 18px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--orange-light);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    .badge-top span { font-size: 16px; }
+
+    .cover h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .cover h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--orange) 0%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cover p.subtitle {
+      font-size: 18px;
+      color: rgba(255,255,255,0.55);
+      max-width: 580px;
+      margin: 0 auto 48px;
+    }
+
+    .cover-meta {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .cover-meta-item { text-align: center; }
+    .cover-meta-item .val {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--orange);
+      display: block;
+    }
+    .cover-meta-item .lbl {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .divider-cover {
+      width: 80px; height: 3px;
+      background: linear-gradient(90deg, transparent, var(--orange), transparent);
+      margin: 0 auto 48px;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    .section + .section { padding-top: 0; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(24px, 4vw, 38px);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      color: rgba(255,255,255,0.5);
+      font-size: 15px;
+      max-width: 600px;
+      margin-bottom: 48px;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--charcoal);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+    }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(232,128,48,0.08) 0%, rgba(245,192,24,0.04) 100%);
+      border: 1px solid rgba(232,128,48,0.25);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+
+    /* ── SCOPE GRID ── */
+    .scope-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .scope-card {
+      background: var(--charcoal);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      transition: border-color 0.2s;
+    }
+
+    .scope-card:hover { border-color: rgba(232,128,48,0.3); }
+
+    .scope-icon {
+      font-size: 24px;
+      margin-bottom: 14px;
+      display: block;
+      color: var(--orange);
+    }
+
+    .scope-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--white);
+    }
+
+    .scope-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .scope-card ul li {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .scope-card ul li::before {
+      content: '›';
+      color: var(--orange);
+      font-size: 16px;
+      line-height: 1.3;
+      flex-shrink: 0;
+    }
+
+    /* ── STATS ROW ── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .stat-card {
+      background: var(--charcoal);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stat-card .num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--orange);
+      display: block;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-card .lbl {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ── TECH STACK ── */
+    .tech-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+
+    .tech-pill {
+      background: var(--charcoal-light);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.75);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tech-pill .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--orange);
+      flex-shrink: 0;
+    }
+
+    /* ── PRICING ── */
+    .pricing-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 620px) { .pricing-wrap { grid-template-columns: 1fr; } }
+
+    .pricing-main {
+      background: linear-gradient(135deg, #242424 0%, #1e1306 100%);
+      border: 1.5px solid rgba(232,128,48,0.4);
+      border-radius: 24px;
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-side {
+      background: var(--charcoal);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 36px;
+    }
+
+    .pricing-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 8px;
+    }
+
+    .pricing-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .pricing-desc { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+
+    .price-amount {
+      font-family: 'Poppins', sans-serif;
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .price-amount small {
+      font-size: 18px;
+      font-weight: 600;
+      color: rgba(232,128,48,0.7);
+    }
+
+    .price-note { font-size: 12px; color: var(--muted); margin-bottom: 24px; }
+
+    .price-list { list-style: none; padding: 0; }
+    .price-list li {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .price-list li:last-child { border-bottom: none; }
+
+    .price-list li .item-name { display: flex; align-items: center; gap: 8px; }
+    .price-list li .item-name::before { content: '●'; font-size: 6px; color: var(--orange); }
+    .price-list li .item-price { font-weight: 600; color: var(--white); white-space: nowrap; }
+
+    .price-total {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(232,128,48,0.25);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .price-total .tot-lbl { font-weight: 700; font-size: 15px; }
+    .price-total .tot-val {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--orange);
+    }
+
+    /* ── TIMELINE ── */
+    .timeline { position: relative; padding-left: 32px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 11px; top: 8px; bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--orange) 0%, transparent 100%);
+    }
+
+    .tl-item {
+      position: relative;
+      margin-bottom: 28px;
+    }
+
+    .tl-dot {
+      position: absolute;
+      left: -27px; top: 6px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--orange);
+      border: 3px solid #111;
+      box-shadow: 0 0 0 2px var(--orange);
+    }
+
+    .tl-week {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 4px;
+    }
+
+    .tl-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .tl-desc { font-size: 13px; color: var(--muted); }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--charcoal);
+      border-top: 1px solid var(--border);
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .footer .footer-inner { max-width: 600px; margin: 0 auto; }
+
+    .footer-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .footer-role {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .footer-contact {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .footer-contact a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .footer-contact a:hover { color: var(--orange); }
+
+    .footer-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.2);
+      line-height: 1.8;
+    }
+
+    .signature-line {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      text-align: left;
+    }
+
+    .sig-box { border-top: 1px solid var(--border); padding-top: 16px; }
+    .sig-box .sig-label { font-size: 12px; color: var(--muted); margin-bottom: 60px; }
+    .sig-box .sig-name { font-size: 14px; font-weight: 600; }
+    .sig-box .sig-role { font-size: 12px; color: var(--muted); }
+
+    /* ── LISTING FLOW ── */
+    .listing-flow-steps {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 0;
+      align-items: center;
+    }
+    .listing-flow-steps > div:not(.flow-arrow) { flex: 1; }
+    .flow-arrow {
+      padding: 0 12px;
+      color: var(--muted);
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ── SEPARATOR ── */
+    .separator {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0 40px;
+    }
+
+    /* ── FEATURE TAG ── */
+    .feature-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(76,175,138,0.12);
+      border: 1px solid rgba(76,175,138,0.3);
+      border-radius: 50px;
+      padding: 4px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--success);
+      margin: 3px;
+    }
+
+    .feature-tag.orange {
+      background: var(--orange-dim);
+      border-color: rgba(232,128,48,0.3);
+      color: var(--orange-light);
+    }
+
+    .feature-tag.blue {
+      background: rgba(91,164,207,0.12);
+      border-color: rgba(91,164,207,0.3);
+      color: var(--info);
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: #111; }
+      .cover { min-height: auto; padding: 60px 40px; }
+      .section { padding: 40px; }
+      a { color: inherit; }
+      .pricing-main::before { display: none; }
+    }
+
+    /* ── MOBILE RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .cover { padding: 48px 24px; }
+      .cover h1 { font-size: 32px; }
+      .cover p.subtitle { font-size: 15px; }
+      .cover-meta { gap: 24px; }
+      .cover-meta-item .val { font-size: 22px; }
+
+      .section { padding: 48px 20px; }
+      .section + .section { padding-top: 0; }
+      .section-title { font-size: 24px; }
+      .separator { margin: 0 20px; }
+
+      .scope-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: repeat(3, 1fr); }
+      .tech-grid { gap: 8px; }
+      .tech-pill { font-size: 12px; padding: 6px 12px; }
+
+      .pricing-wrap { grid-template-columns: 1fr; }
+      .pricing-main, .pricing-side { padding: 24px 20px; }
+      .price-amount { font-size: 32px; }
+
+      .signature-line { grid-template-columns: 1fr; gap: 24px; }
+      .footer { padding: 40px 20px; }
+      .footer-name { font-size: 20px; }
+      .footer-contact { gap: 16px; }
+      .footer-note { margin-top: 24px !important; }
+
+      .listing-flow-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .listing-flow-steps .flow-arrow {
+        text-align: center;
+        color: var(--muted);
+        font-size: 16px;
+        transform: rotate(90deg);
+      }
+
+      .timeline { padding-left: 24px; }
+    }
+
+    @media (max-width: 480px) {
+      .cover { padding: 40px 16px; }
+      .cover h1 { font-size: 26px; }
+      .cover-meta { gap: 16px; }
+      .cover-meta-item .val { font-size: 20px; }
+      .badge-top { font-size: 11px; padding: 5px 14px; }
+
+      .section { padding: 36px 16px; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+
+      .pricing-main::before { display: none; }
+
+      /* Estimasi total 3 kolom → 1 kolom di hp kecil */
+      [style*="grid-template-columns:repeat(3,1fr)"] {
+        display: flex !important;
+        flex-direction: column;
+      }
+
+      .footer-contact { flex-direction: column; align-items: center; gap: 10px; }
+      .footer-name { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     COVER
+══════════════════════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-inner">
+    <div class="badge-top"><i class="fa-solid fa-file-contract"></i> Proposal Pengembangan Aplikasi</div>
+
+    <h1>Aplikasi Mobile<br /><em>HDCI Bandung</em></h1>
+
+    <p class="subtitle">
+      Platform digital komunitas Harley Davidson Club Indonesia Chapter Bandung —
+      manajemen keanggotaan, kegiatan, toko, dan galeri, semua dalam satu aplikasi.
+    </p>
+
+    <div class="divider-cover"></div>
+
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <span class="val">35+</span>
+        <span class="lbl">Halaman / Layar</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="val">116</span>
+        <span class="lbl">Migrasi Database</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="val">2</span>
+        <span class="lbl">Platform (iOS & Android)</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="val">~1 Bln</span>
+        <span class="lbl">Durasi Pengerjaan</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     TENTANG PROYEK
+══════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">01 — Tentang Proyek</div>
+  <h2 class="section-title">Apa yang Dibangun?</h2>
+  <p class="section-desc">
+    Aplikasi mobile cross-platform lengkap untuk komunitas HDCI Bandung,
+    mencakup panel anggota, panel admin, sistem pembayaran, notifikasi real-time,
+    dan backend database skala produksi.
+  </p>
+
+  <div class="highlight-box">
+    <p style="font-size:15px; color:rgba(255,255,255,0.8); line-height:1.8;">
+      Aplikasi ini dibangun dari nol — mulai dari desain skema database, sistem autentikasi,
+      seluruh alur pembayaran iuran & kegiatan, toko merchandise, scanner QR kehadiran,
+      sistem tier gamifikasi, hingga notifikasi push otomatis ke semua anggota.
+      Dikerjakan oleh <strong style="color:var(--orange)">satu developer</strong> yang juga anggota aktif HDCI Bandung,
+      sehingga memahami kebutuhan komunitas Harley Davidson secara langsung.
+    </p>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <span class="num">35+</span>
+      <span class="lbl">Layar / Halaman</span>
+    </div>
+    <div class="stat-card">
+      <span class="num">116</span>
+      <span class="lbl">Migrasi Database</span>
+    </div>
+    <div class="stat-card">
+      <span class="num">11</span>
+      <span class="lbl">Service Layer</span>
+    </div>
+    <div class="stat-card">
+      <span class="num">11</span>
+      <span class="lbl">Modul Admin</span>
+    </div>
+    <div class="stat-card">
+      <span class="num">15+</span>
+      <span class="lbl">Tabel Database</span>
+    </div>
+    <div class="stat-card">
+      <span class="num">2</span>
+      <span class="lbl">Platform</span>
+    </div>
+  </div>
+</div>
+
+<div class="separator"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     TECH STACK
+══════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">02 — Teknologi</div>
+  <h2 class="section-title">Stack Teknologi</h2>
+  <p class="section-desc">Semua teknologi yang digunakan adalah industry-standard, open-source, dan production-ready.</p>
+
+  <div class="tech-grid">
+    <div class="tech-pill"><span class="dot"></span> React Native 0.81.5</div>
+    <div class="tech-pill"><span class="dot"></span> Expo SDK 54</div>
+    <div class="tech-pill"><span class="dot"></span> expo-router v6 (File-based Routing)</div>
+    <div class="tech-pill"><span class="dot"></span> TypeScript</div>
+    <div class="tech-pill"><span class="dot"></span> Supabase (PostgreSQL)</div>
+    <div class="tech-pill"><span class="dot"></span> Supabase Auth</div>
+    <div class="tech-pill"><span class="dot"></span> Supabase Storage</div>
+    <div class="tech-pill"><span class="dot"></span> Supabase Realtime</div>
+    <div class="tech-pill"><span class="dot"></span> Supabase Edge Functions</div>
+    <div class="tech-pill"><span class="dot"></span> pg_net (Async HTTP dari DB)</div>
+    <div class="tech-pill"><span class="dot"></span> Expo Notifications (Push)</div>
+    <div class="tech-pill"><span class="dot"></span> Twilio WhatsApp OTP</div>
+    <div class="tech-pill"><span class="dot"></span> Row Level Security (RLS)</div>
+    <div class="tech-pill"><span class="dot"></span> DB Triggers & RPCs</div>
+    <div class="tech-pill"><span class="dot"></span> expo-linear-gradient</div>
+    <div class="tech-pill"><span class="dot"></span> react-native-qrcode-svg</div>
+    <div class="tech-pill"><span class="dot"></span> expo-image-picker</div>
+    <div class="tech-pill"><span class="dot"></span> expo-camera (QR Scanner)</div>
+  </div>
+</div>
+
+<div class="separator"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     SCOPE OF WORK
+══════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">03 — Lingkup Pekerjaan</div>
+  <h2 class="section-title">Fitur yang Dibangun</h2>
+  <p class="section-desc">Seluruh fitur dikerjakan lengkap — frontend, backend, database, dan infrastruktur.</p>
+
+  <div class="scope-grid">
+
+    <!-- AUTH -->
+    <div class="scope-card">
+      <span class="scope-icon"><i class="fa-solid fa-lock"></i></span>
+      <h3>Autentikasi & Registrasi</h3>
+      <ul>
+        <li>OTP via WhatsApp (Twilio)</li>
+        <li>Alur registrasi pra-member</li>
+        <li>Upload KTP, SIM, STNK, foto close-up</li>
+        <li>Review & approval admin</li>
+        <li>Multi-role: Super Admin, Admin, User</li>
+        <li>Akses modul admin granular</li>
+      </ul>
+    </div>
+
+    <!-- MEMBER APP -->
+    <div class="scope-card">
+      <span class="scope-icon"><i class="fa-solid fa-user"></i></span>
+      <h3>Aplikasi Anggota (User)</h3>
+      <ul>
+        <li>Dashboard / Beranda</li>
+        <li>KTA Digital (QR Code)</li>
+        <li>Profil & edit data pribadi</li>
+        <li>Garasi kendaraan</li>
+        <li>Iuran tahunan + riwayat bayar</li>
+        <li>Status keanggotaan & tier</li>
+      </ul>
+    </div>
+
+    <!-- EVENTS -->
+    <div class="scope-card">
+      <span class="scope-icon"><i class="fa-solid fa-motorcycle"></i></span>
+      <h3>Kegiatan (Events)</h3>
+      <ul>
+        <li>Browse & filter kegiatan</li>
+        <li>Detail + opsi registrasi</li>
+        <li>Pembayaran kegiatan berbayar</li>
+        <li>Auto-approve kegiatan gratis</li>
+        <li>Upload bukti pembayaran</li>
+        <li>QR absensi kehadiran</li>
+      </ul>
+    </div>
+
+    <!-- SHOP -->
+    <div class="scope-card">
+      <span class="scope-icon"><i class="fa-solid fa-bag-shopping"></i></span>
+      <h3>Toko Merchandise</h3>
+      <ul>
+        <li>Katalog produk + varian ukuran</li>
+        <li>Keranjang belanja</li>
+        <li>Checkout + pilihan pengiriman/pickup</li>
+        <li>Upload bukti pembayaran</li>
+        <li>Tracking status pesanan</li>
+        <li>Stok: ready stock & preorder</li>
+      </ul>
+    </div>
+
+    <!-- PROMOS -->
+    <div class="scope-card">
+      <span class="scope-icon"><i class="fa-solid fa-gift"></i></span>
+      <h3>Promo & Partnership</h3>
+      <ul>
+        <li>Daftar promo eksklusif anggota</li>
+        <li>Detail promo + syarat & ketentuan</li>
+        <li>Filter kategori promo</li>
+        <li>Notifikasi promo baru otomatis</li>
+      </ul>
+    </div>
+
+    <!-- GALLERY -->
+    <div class="scope-card">
+      <span class="scope-icon"><i class="fa-solid fa-camera"></i></span>
+      <h3>Galeri Foto</h3>
+      <ul>
+        <li>Album kegiatan</li>
+        <li>Multiple foto per album</li>
+        <li>Notifikasi album baru otomatis</li>
+        <li>Upload via Storage Supabase</li>
+      </ul>
+    </div>
+
+    <!-- NOTIF -->
+    <div class="scope-card">
+      <span class="scope-icon"><i class="fa-solid fa-bell"></i></span>
+      <h3>Notifikasi</h3>
+      <ul>
+        <li>Push notification ke device (Expo)</li>
+        <li>In-app notification dashboard</li>
+        <li>Realtime toast notifikasi</li>
+        <li>Notif otomatis: approval pembayaran</li>
+        <li>Notif otomatis: naik jabatan</li>
+        <li>Notif otomatis: naik tier</li>
+        <li>Notif otomatis: konten baru</li>
+      </ul>
+    </div>
+
+    <!-- TIER -->
+    <div class="scope-card">
+      <span class="scope-icon"><i class="fa-solid fa-trophy"></i></span>
+      <h3>Sistem Tier & Gamifikasi</h3>
+      <ul>
+        <li>6 level tier (Beginner → Legend)</li>
+        <li>Berbasis KM perjalanan & jumlah event</li>
+        <li>Avatar border animasi per tier</li>
+        <li>Leaderboard tahunan</li>
+        <li>Push notif otomatis saat naik tier</li>
+      </ul>
+    </div>
+
+    <!-- ADMIN PANEL -->
+    <div class="scope-card">
+      <span class="scope-icon"><i class="fa-solid fa-gear"></i></span>
+      <h3>Panel Admin (11 Modul)</h3>
+      <ul>
+        <li>Kelola Anggota (edit, approve, jabatan)</li>
+        <li>Kelola Kegiatan (CRUD + filter status)</li>
+        <li>Kelola Pesanan</li>
+        <li>Kelola Transaksi</li>
+        <li>Kelola Toko / Merchandise</li>
+        <li>Kelola Promo</li>
+        <li>Kelola Galeri</li>
+        <li>Scan QR Absensi</li>
+        <li>Pengaturan Aplikasi</li>
+        <li>Log Aktivitas</li>
+      </ul>
+    </div>
+
+    <!-- BACKEND -->
+    <div class="scope-card">
+      <span class="scope-icon"><i class="fa-solid fa-database"></i></span>
+      <h3>Backend & Database</h3>
+      <ul>
+        <li>116 iterasi migrasi database</li>
+        <li>Row Level Security (RLS) menyeluruh</li>
+        <li>Security Definer RPCs</li>
+        <li>DB Triggers (notifikasi, auto-expire)</li>
+        <li>Storage: avatar, dokumen, bukti bayar</li>
+        <li>Edge Functions (OTP, push)</li>
+        <li>Realtime subscription</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- FEATURE TAGS -->
+  <div style="margin-bottom:48px;">
+    <p style="font-size:13px; color:var(--muted); margin-bottom:16px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em;">Fitur Unggulan</p>
+    <span class="feature-tag">✓ Cross-platform iOS & Android</span>
+    <span class="feature-tag">✓ Alur pembayaran lengkap</span>
+    <span class="feature-tag">✓ WhatsApp OTP</span>
+    <span class="feature-tag orange">✓ Push Notification</span>
+    <span class="feature-tag orange">✓ QR Scanner Absensi</span>
+    <span class="feature-tag orange">✓ Admin Panel Lengkap</span>
+    <span class="feature-tag blue">✓ Real-time Updates</span>
+    <span class="feature-tag blue">✓ Tier Animasi</span>
+    <span class="feature-tag blue">✓ Gamifikasi</span>
+    <span class="feature-tag">✓ Auto-expire Keanggotaan</span>
+    <span class="feature-tag">✓ Preorder Merchandise</span>
+    <span class="feature-tag">✓ Leaderboard</span>
+    <span class="feature-tag orange">✓ Notif Otomatis Konten Baru</span>
+    <span class="feature-tag orange">✓ Notif Promosi Jabatan</span>
+    <span class="feature-tag blue">✓ KTA Digital (QR)</span>
+    <span class="feature-tag blue">✓ Manajemen Garasi</span>
+  </div>
+</div>
+
+<div class="separator"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     TIMELINE
+══════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">04 — Waktu Pengerjaan</div>
+  <h2 class="section-title">Tahapan Pengerjaan</h2>
+  <p class="section-desc">Diselesaikan dalam ±1 bulan dengan metodologi iteratif.</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-week">Minggu 1</div>
+      <div class="tl-title">Fondasi & Infrastruktur</div>
+      <div class="tl-desc">Desain skema database, setup Supabase, sistem autentikasi OTP WhatsApp, alur registrasi anggota baru, struktur routing expo-router.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-week">Minggu 2</div>
+      <div class="tl-title">Fitur Inti Anggota</div>
+      <div class="tl-desc">Halaman kegiatan + registrasi + pembayaran, toko merchandise + keranjang + checkout, profil & KTA digital, notifikasi in-app.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-week">Minggu 3</div>
+      <div class="tl-title">Panel Admin & Fitur Lanjut</div>
+      <div class="tl-desc">Seluruh modul admin (11 modul), scanner QR absensi, sistem tier + gamifikasi, leaderboard, push notifications, galeri, promo.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-week">Minggu 4</div>
+      <div class="tl-title">Penyempurnaan & Testing</div>
+      <div class="tl-desc">Bug fixing, optimasi performa, keamanan RLS, trigger otomatis notifikasi konten baru, tier upgrade, promosi jabatan, UI polish.</div>
+    </div>
+  </div>
+</div>
+
+<div class="separator"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PRICING
+══════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">05 — Investasi</div>
+  <h2 class="section-title">Harga & Paket</h2>
+  <p class="section-desc">
+    Harga ditetapkan secara transparan, mencerminkan nilai sesungguhnya dari aplikasi skala produksi ini,
+    dengan diskon khusus anggota HDCI Bandung.
+  </p>
+
+  <!-- Perbandingan Nilai Pasar -->
+  <div class="highlight-box" style="margin-bottom:32px;">
+    <p style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--orange); margin-bottom:12px;"><i class="fa-solid fa-lightbulb"></i> Perbandingan Nilai Pasar</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:16px;">
+      <div>
+        <p style="font-size:20px; font-weight:800; color:rgba(255,255,255,0.3);">Rp 50–150 jt</p>
+        <p style="font-size:12px; color:var(--muted);">Software House / Agency</p>
+      </div>
+      <div>
+        <p style="font-size:20px; font-weight:800; color:rgba(255,255,255,0.5);">Rp 25–50 jt</p>
+        <p style="font-size:12px; color:var(--muted);">Senior Freelancer</p>
+      </div>
+      <div>
+        <p style="font-size:20px; font-weight:800; color:var(--orange);">Rp 30 jt</p>
+        <p style="font-size:12px; color:var(--muted);">Harga yang Diajukan</p>
+      </div>
+    </div>
+    <p style="font-size:12px; color:var(--muted); margin-top:16px;">
+      Dengan kondisi kas organisasi yang sehat, ini adalah investasi yang wajar —
+      jauh di bawah harga senior freelancer maupun software house untuk scope dan kompleksitas yang setara.
+    </p>
+  </div>
+
+  <div class="pricing-wrap">
+
+    <!-- MAIN PRICING -->
+    <div class="pricing-main">
+      <div class="pricing-label">Paket Lengkap (One-Time)</div>
+      <div class="pricing-title">Full Application Development</div>
+      <div class="pricing-desc">Semua fitur + backend + admin panel + notifikasi</div>
+
+      <div class="price-amount"><small>Rp </small>30.000.000</div>
+      <div class="price-note">Bayar sekali · hak milik source code & database penuh</div>
+
+      <ul class="price-list">
+        <li>
+          <span class="item-name">Aplikasi Mobile iOS & Android (35+ layar)</span>
+          <span class="item-price">Rp 12.000.000</span>
+        </li>
+        <li>
+          <span class="item-name">Backend & Database (116 migrasi)</span>
+          <span class="item-price">Rp 6.000.000</span>
+        </li>
+        <li>
+          <span class="item-name">Panel Admin (11 modul)</span>
+          <span class="item-price">Rp 6.000.000</span>
+        </li>
+        <li>
+          <span class="item-name">Push Notif + OTP WhatsApp</span>
+          <span class="item-price">Rp 3.000.000</span>
+        </li>
+        <li>
+          <span class="item-name">Testing, Bug Fix & Deploy</span>
+          <span class="item-price">Rp 3.000.000</span>
+        </li>
+      </ul>
+
+      <div class="price-total">
+        <span class="tot-lbl">Total</span>
+        <span class="tot-val">Rp 30.000.000</span>
+      </div>
+    </div>
+
+    <!-- SIDE PRICING -->
+    <div class="pricing-side">
+      <div class="pricing-label">Pemeliharaan</div>
+      <div class="pricing-title">Maintenance On-Demand</div>
+      <div class="pricing-desc">Dibayar hanya saat dibutuhkan — tidak ada langganan bulanan</div>
+
+      <ul class="price-list" style="margin-top:16px;">
+        <li>
+          <span class="item-name"><i class="fa-solid fa-wrench" style="color:var(--orange); margin-right:6px;"></i>Sesi Ringan (1–2 jam)</span>
+          <span class="item-price">Rp 200.000</span>
+        </li>
+        <li>
+          <span class="item-name"><i class="fa-solid fa-screwdriver-wrench" style="color:var(--info); margin-right:6px;"></i>Sesi Standar (3–5 jam)</span>
+          <span class="item-price">Rp 500.000</span>
+        </li>
+        <li>
+          <span class="item-name"><i class="fa-solid fa-gears" style="color:var(--orange); margin-right:6px;"></i>Sesi Intensif (6–8 jam)</span>
+          <span class="item-price">Rp 1.000.000</span>
+        </li>
+        <li>
+          <span class="item-name">Estimasi per tahun (~3–5 sesi)</span>
+          <span class="item-price" style="color:var(--info);">Rp 600 – 5 jt</span>
+        </li>
+      </ul>
+
+      <div style="margin-top:14px; padding:12px 14px; background:rgba(255,255,255,0.03); border-radius:10px; border:1px solid rgba(255,255,255,0.06);">
+        <p style="font-size:12px; color:var(--muted); line-height:1.7;">
+          <i class="fa-solid fa-circle-info" style="color:var(--info);"></i>
+          <strong style="color:rgba(255,255,255,0.5);"> Tidak ada kewajiban berlangganan.</strong> Maintenance dipanggil hanya saat ada kebutuhan nyata — bug, update OS, atau penyesuaian alur.
+        </p>
+      </div>
+    </div>
+  </div>
+
+       <!-- TERM OF PAYMENT -->
+    <div class="card" style="margin-bottom:30px;">
+        <p style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--orange); margin-bottom:16px;"><i class="fa-solid fa-clipboard-list"></i> Ketentuan Pembayaran</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:16px;">
+        <div style="background:linear-gradient(135deg,rgba(232,128,48,0.12),rgba(245,192,24,0.06)); border-radius:12px; padding:16px; border:1px solid rgba(232,128,48,0.3);">
+            <p style="font-size:24px; font-weight:800; color:var(--orange); margin-bottom:4px;">100%</p>
+            <p style="font-size:13px; font-weight:600; margin-bottom:4px;">Full Payment</p>
+            <p style="font-size:12px; color:var(--muted);">Dibayar sekaligus — aplikasi sudah selesai & siap pakai, tidak ada proses pengerjaan ulang</p>
+        </div>
+        <div style="background:var(--charcoal-light); border-radius:12px; padding:16px;">
+            <p style="font-size:24px; font-weight:800; color:var(--info); margin-bottom:4px;">100%</p>
+            <p style="font-size:13px; font-weight:600; margin-bottom:4px;">Hak Milik</p>
+            <p style="font-size:12px; color:var(--muted);">Source code & database menjadi milik penuh HDCI Bandung</p>
+        </div>
+        <div style="background:var(--charcoal-light); border-radius:12px; padding:16px;">
+            <p style="font-size:24px; font-weight:800; color:var(--orange); margin-bottom:4px;">On-Demand</p>
+            <p style="font-size:13px; font-weight:600; margin-bottom:4px;">Maintenance Berbayar</p>
+            <p style="font-size:12px; color:var(--muted);">Dibayar hanya saat dibutuhkan — tidak ada biaya langganan rutin</p>
+        </div>
+        <div style="background:linear-gradient(135deg,rgba(76,175,138,0.12),rgba(76,175,138,0.04)); border-radius:12px; padding:16px; border:1px solid rgba(76,175,138,0.3);">
+            <p style="font-size:24px; font-weight:800; color:var(--success); margin-bottom:4px;">30 Hari</p>
+            <p style="font-size:13px; font-weight:600; margin-bottom:4px;">Garansi Bug & Fix</p>
+            <p style="font-size:12px; color:var(--muted);">Setelah serah terima — semua bug & error diperbaiki <strong style="color:rgba(255,255,255,0.5);">gratis</strong>. Tidak termasuk penambahan fitur baru.</p>
+        </div>
+        </div>
+
+        <!-- Garansi Detail -->
+        <div style="margin-top:16px; padding:14px 16px; background:rgba(76,175,138,0.06); border:1px solid rgba(76,175,138,0.2); border-radius:12px; display:flex; gap:14px; align-items:flex-start;">
+          <i class="fa-solid fa-shield-halved" style="color:var(--success); font-size:20px; flex-shrink:0; margin-top:2px;"></i>
+          <div>
+            <p style="font-size:13px; font-weight:700; color:var(--success); margin-bottom:6px;">Apa yang Termasuk dalam Garansi 30 Hari</p>
+            <div style="display:flex; flex-wrap:wrap; gap:8px;">
+              <span style="font-size:12px; color:rgba(255,255,255,0.6); background:rgba(76,175,138,0.1); border-radius:6px; padding:4px 10px;"><i class="fa-solid fa-check" style="color:var(--success);margin-right:5px;"></i>Bug & error yang ditemukan setelah serah terima</span>
+              <span style="font-size:12px; color:rgba(255,255,255,0.6); background:rgba(76,175,138,0.1); border-radius:6px; padding:4px 10px;"><i class="fa-solid fa-check" style="color:var(--success);margin-right:5px;"></i>Fitur yang tidak berjalan sesuai spesifikasi awal</span>
+              <span style="font-size:12px; color:rgba(255,255,255,0.6); background:rgba(76,175,138,0.1); border-radius:6px; padding:4px 10px;"><i class="fa-solid fa-check" style="color:var(--success);margin-right:5px;"></i>Crash atau error yang muncul di kondisi normal</span>
+              <span style="font-size:12px; color:rgba(255,255,255,0.35); background:rgba(255,255,255,0.04); border-radius:6px; padding:4px 10px;"><i class="fa-solid fa-xmark" style="color:rgba(255,80,80,0.6);margin-right:5px;"></i>Penambahan fitur baru — tidak termasuk</span>
+              <span style="font-size:12px; color:rgba(255,255,255,0.35); background:rgba(255,255,255,0.04); border-radius:6px; padding:4px 10px;"><i class="fa-solid fa-xmark" style="color:rgba(255,80,80,0.6);margin-right:5px;"></i>Perubahan desain atau alur — tidak termasuk</span>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  <!-- BIAYA OPERASIONAL SEJAK HARI PERTAMA -->
+  <div class="card" style="margin-bottom:0;">
+    <p style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--info); margin-bottom:20px;"><i class="fa-solid fa-calendar-days"></i> Estimasi Biaya Operasional <span style="color:var(--orange);">— Berlaku Sejak Hari Pertama</span></p>
+
+    <!-- Maintenance On-Demand Detail -->
+    <div style="background:var(--charcoal-light); border-radius:14px; padding:20px; margin-bottom:14px;">
+      <p style="font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px;"><i class="fa-solid fa-wrench" style="color:var(--orange);margin-right:6px;"></i>Maintenance On-Demand — Rincian Sesi</p>
+      <p style="font-size:12px; color:rgba(255,255,255,0.3); margin-bottom:16px;">Dibayar hanya saat ada kebutuhan &mdash; tidak ada biaya langganan bulanan.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:12px; margin-bottom:16px;">
+
+        <!-- Sesi Ringan -->
+        <div style="background:rgba(76,175,138,0.07); border:1px solid rgba(76,175,138,0.2); border-radius:12px; padding:14px;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+            <p style="font-size:11px; font-weight:700; color:var(--success); text-transform:uppercase; letter-spacing:0.07em;">Sesi Ringan</p>
+            <span style="background:rgba(76,175,138,0.15); color:var(--success); font-size:11px; font-weight:700; padding:2px 8px; border-radius:20px;">1–2 jam</span>
+          </div>
+          <p style="font-size:22px; font-weight:800; color:var(--white); line-height:1; margin-bottom:6px;">Rp 200.000</p>
+          <div style="height:1px; background:rgba(255,255,255,0.06); margin-bottom:8px;"></div>
+          <p style="font-size:12px; color:rgba(255,255,255,0.6); font-weight:600; margin-bottom:4px;">Contoh kebutuhan:</p>
+          <ul style="list-style:none; padding:0; margin:0;">
+            <li style="font-size:12px; color:rgba(255,255,255,0.5); padding:3px 0; display:flex; gap:6px;"><i class="fa-solid fa-angle-right" style="color:var(--success); font-size:10px; margin-top:3px; flex-shrink:0;"></i>Ubah tulisan, warna, atau tampilan di app</li>
+            <li style="font-size:12px; color:rgba(255,255,255,0.5); padding:3px 0; display:flex; gap:6px;"><i class="fa-solid fa-angle-right" style="color:var(--success); font-size:10px; margin-top:3px; flex-shrink:0;"></i>Ada error kecil di satu halaman</li>
+          </ul>
+        </div>
+
+        <!-- Sesi Standar -->
+        <div style="background:rgba(91,164,207,0.07); border:1px solid rgba(91,164,207,0.2); border-radius:12px; padding:14px;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+            <p style="font-size:11px; font-weight:700; color:var(--info); text-transform:uppercase; letter-spacing:0.07em;">Sesi Standar</p>
+            <span style="background:rgba(91,164,207,0.15); color:var(--info); font-size:11px; font-weight:700; padding:2px 8px; border-radius:20px;">3–5 jam</span>
+          </div>
+          <p style="font-size:22px; font-weight:800; color:var(--white); line-height:1; margin-bottom:6px;">Rp 500.000</p>
+          <div style="height:1px; background:rgba(255,255,255,0.06); margin-bottom:8px;"></div>
+          <p style="font-size:12px; color:rgba(255,255,255,0.6); font-weight:600; margin-bottom:4px;">Contoh kebutuhan:</p>
+          <ul style="list-style:none; padding:0; margin:0;">
+            <li style="font-size:12px; color:rgba(255,255,255,0.5); padding:3px 0; display:flex; gap:6px;"><i class="fa-solid fa-angle-right" style="color:var(--info); font-size:10px; margin-top:3px; flex-shrink:0;"></i>Ada fitur yang tidak berjalan normal</li>
+            <li style="font-size:12px; color:rgba(255,255,255,0.5); padding:3px 0; display:flex; gap:6px;"><i class="fa-solid fa-angle-right" style="color:var(--info); font-size:10px; margin-top:3px; flex-shrink:0;"></i>Data tidak muncul / salah di beberapa halaman</li>
+            <li style="font-size:12px; color:rgba(255,255,255,0.5); padding:3px 0; display:flex; gap:6px;"><i class="fa-solid fa-angle-right" style="color:var(--info); font-size:10px; margin-top:3px; flex-shrink:0;"></i>Penyesuaian aturan akses &amp; keamanan data</li>
+          </ul>
+        </div>
+
+        <!-- Sesi Intensif -->
+        <div style="background:rgba(232,128,48,0.07); border:1px solid rgba(232,128,48,0.2); border-radius:12px; padding:14px;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+            <p style="font-size:11px; font-weight:700; color:var(--orange); text-transform:uppercase; letter-spacing:0.07em;">Sesi Intensif</p>
+            <span style="background:rgba(232,128,48,0.15); color:var(--orange); font-size:11px; font-weight:700; padding:2px 8px; border-radius:20px;">6–8 jam</span>
+          </div>
+          <p style="font-size:22px; font-weight:800; color:var(--white); line-height:1; margin-bottom:6px;">Rp 1.000.000</p>
+          <div style="height:1px; background:rgba(255,255,255,0.06); margin-bottom:8px;"></div>
+          <p style="font-size:12px; color:rgba(255,255,255,0.6); font-weight:600; margin-bottom:4px;">Contoh kebutuhan:</p>
+          <ul style="list-style:none; padding:0; margin:0;">
+            <li style="font-size:12px; color:rgba(255,255,255,0.5); padding:3px 0; display:flex; gap:6px;"><i class="fa-solid fa-angle-right" style="color:var(--orange); font-size:10px; margin-top:3px; flex-shrink:0;"></i>Error besar yang mempengaruhi banyak bagian</li>
+            <li style="font-size:12px; color:rgba(255,255,255,0.5); padding:3px 0; display:flex; gap:6px;"><i class="fa-solid fa-angle-right" style="color:var(--orange); font-size:10px; margin-top:3px; flex-shrink:0;"></i>App perlu disesuaikan karena update OS/platform</li>
+            <li style="font-size:12px; color:rgba(255,255,255,0.5); padding:3px 0; display:flex; gap:6px;"><i class="fa-solid fa-angle-right" style="color:var(--orange); font-size:10px; margin-top:3px; flex-shrink:0;"></i>Perombakan alur yang sudah ada (bukan fitur baru)</li>
+          </ul>
+        </div>
+
+      </div>
+      <div style="background:rgba(255,255,255,0.03); border-radius:10px; padding:12px 14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <p style="font-size:12px; color:var(--muted); line-height:1.7;">
+          <i class="fa-solid fa-circle-info" style="color:var(--info); margin-right:5px;"></i>
+          Dibayar hanya saat dibutuhkan &mdash; tidak ada biaya berlangganan rutin.<br/>
+          <strong style="color:rgba(255,255,255,0.5);">Estimasi kebutuhan:</strong> ~3&ndash;5 sesi per tahun.
+        </p>
+        <div style="text-align:right; flex-shrink:0;">
+          <p style="font-size:11px; color:var(--muted); margin-bottom:2px;">Estimasi per tahun</p>
+          <p style="font-size:18px; font-weight:800; color:var(--orange);">Rp 600.000 <span style="font-size:13px; font-weight:400; color:var(--muted);">– Rp 5.000.000</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:14px; margin-bottom:14px;">
+      <div style="background:rgba(91,164,207,0.07); border:1px solid rgba(91,164,207,0.25); border-radius:12px; padding:16px;">
+        <p style="font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:6px;"><i class="fa-solid fa-server" style="color:var(--info);margin-right:5px;"></i>Server Supabase Pro</p>
+        <p style="font-size:20px; font-weight:800; color:var(--info); line-height:1.1;">$25 <span style="font-size:12px;font-weight:400;color:var(--muted);">~Rp 450.000/bulan</span></p>
+        <p style="font-size:11px; color:var(--muted); margin-top:4px;">= <strong style="color:rgba(255,255,255,0.5);">Rp 5.400.000/tahun</strong>. Paket Pro — database dedicated, backup harian otomatis, tidak ada hibernasi.</p>
+      </div>
+      <div style="background:var(--charcoal-light); border-radius:12px; padding:16px;">
+        <p style="font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:6px;"><i class="fa-brands fa-apple" style="color:var(--info);margin-right:5px;"></i>Apple Developer</p>
+        <p style="font-size:20px; font-weight:800; color:var(--white); line-height:1.1;">$99 <span style="font-size:12px;font-weight:400;color:var(--muted);">(~Rp 1.600.000)</span></p>
+        <p style="font-size:11px; color:var(--muted); margin-top:4px;">/tahun. Wajib diperpanjang untuk mempertahankan app di App Store.</p>
+      </div>
+      <div style="background:var(--charcoal-light); border-radius:12px; padding:16px;">
+        <p style="font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:6px;"><i class="fa-brands fa-google-play" style="color:var(--success);margin-right:5px;"></i>Google Play</p>
+        <p style="font-size:20px; font-weight:800; color:var(--success); line-height:1.1;">Rp 0<span style="font-size:12px;font-weight:400;color:var(--muted);">/tahun</span></p>
+        <p style="font-size:11px; color:var(--muted); margin-top:4px;">Dev account Google tidak perlu diperbarui — bayar sekali seumur hidup.</p>
+      </div>
+    </div>
+
+    <!-- Total Estimasi Per Tahun -->
+    <div style="background:linear-gradient(135deg,rgba(91,164,207,0.08),rgba(232,128,48,0.05)); border:1px solid rgba(91,164,207,0.25); border-radius:14px; padding:20px; margin-bottom:20px;">
+      <p style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--info); margin-bottom:16px;"><i class="fa-solid fa-calculator"></i> Total Estimasi Biaya Operasional Per Tahun</p>
+      <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:16px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.03); border-radius:10px; padding:10px 14px;">
+          <span style="font-size:13px; color:rgba(255,255,255,0.6);"><i class="fa-solid fa-wrench" style="color:var(--orange);width:18px;"></i> Maintenance on-demand (~3–5 sesi)</span>
+          <span style="font-size:13px; font-weight:700; color:var(--white); white-space:nowrap;">Rp 600.000 – Rp 5.000.000</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(91,164,207,0.07); border:1px solid rgba(91,164,207,0.15); border-radius:10px; padding:10px 14px;">
+          <span style="font-size:13px; color:rgba(255,255,255,0.6);"><i class="fa-solid fa-server" style="color:var(--info);width:18px;"></i> Server Supabase Pro ($25/bln)</span>
+          <span style="font-size:13px; font-weight:700; color:var(--info); white-space:nowrap;">Rp 5.400.000</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.03); border-radius:10px; padding:10px 14px;">
+          <span style="font-size:13px; color:rgba(255,255,255,0.6);"><i class="fa-brands fa-apple" style="color:var(--info);width:18px;"></i> Apple Developer (jika pakai iOS)</span>
+          <span style="font-size:13px; font-weight:700; color:var(--white); white-space:nowrap;">~Rp 1.600.000</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.03); border-radius:10px; padding:10px 14px;">
+          <span style="font-size:13px; color:rgba(255,255,255,0.6);"><i class="fa-brands fa-google-play" style="color:var(--success);width:18px;"></i> Google Play (Android)</span>
+          <span style="font-size:13px; font-weight:700; color:var(--success); white-space:nowrap;">Rp 0</span>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(91,164,207,0.2); padding-top:14px; display:grid; grid-template-columns:repeat(3,1fr); gap:12px;">
+        <div style="background:rgba(76,175,138,0.08); border-radius:10px; padding:12px 16px;">
+          <p style="font-size:10px; color:var(--muted); margin-bottom:4px; line-height:1.5;">Minimum<br/>Android only &bull; maintenance ringan</p>
+          <p style="font-size:20px; font-weight:800; color:var(--success); line-height:1.1;">Rp 6.000.000<span style="font-size:12px; font-weight:400; color:var(--muted);"> /tahun</span></p>
+        </div>
+        <div style="background:rgba(245,192,24,0.08); border-radius:10px; padding:12px 16px;">
+          <p style="font-size:10px; color:var(--muted); margin-bottom:4px; line-height:1.5;">Android &amp; iOS<br/>maintenance ringan</p>
+          <p style="font-size:20px; font-weight:800; color:var(--gold); line-height:1.1;">Rp 7.600.000<span style="font-size:12px; font-weight:400; color:var(--muted);"> /tahun</span></p>
+        </div>
+        <div style="background:rgba(91,164,207,0.08); border-radius:10px; padding:12px 16px;">
+          <p style="font-size:10px; color:var(--muted); margin-bottom:4px; line-height:1.5;">Maksimum<br/>iOS + Android &bull; maintenance intensif</p>
+          <p style="font-size:20px; font-weight:800; color:var(--info); line-height:1.1;">Rp 10.750.000<span style="font-size:12px; font-weight:400; color:var(--muted);"> /tahun</span></p>
+        </div>
+      </div>
+      <p style="font-size:11px; color:rgba(255,255,255,0.2); margin-top:10px; line-height:1.7;">*Biaya penambahan fitur baru tidak termasuk dalam estimasi di atas.</p>
+    </div>
+
+    <!-- Penambahan Fitur Baru -->
+    <div style="border-top:1px solid var(--border); padding-top:20px;">
+      <p style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--orange); margin-bottom:6px;"><i class="fa-solid fa-puzzle-piece"></i> Penambahan Fitur Baru</p>
+      <p style="font-size:13px; color:rgba(255,255,255,0.45); margin-bottom:4px;">Untuk <strong style="color:rgba(255,255,255,0.65);">fitur yang benar-benar baru</strong> dan belum ada di aplikasi saat ini.</p>
+      <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(232,128,48,0.08); border:1px solid rgba(232,128,48,0.2); border-radius:8px; padding:6px 12px; margin-bottom:16px;">
+        <i class="fa-solid fa-circle-exclamation" style="color:var(--orange); font-size:13px;"></i>
+        <p style="font-size:12px; color:rgba(255,255,255,0.5);">Perbaikan &amp; pembaruan fitur yang sudah ada <strong style="color:rgba(255,255,255,0.7);">sudah termasuk dalam sesi maintenance</strong> — tidak dikenakan biaya fitur baru.</p>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; margin-bottom:16px;">
+        <div style="background:rgba(76,175,138,0.07); border:1px solid rgba(76,175,138,0.2); border-radius:12px; padding:14px;">
+          <p style="font-size:11px; font-weight:700; color:var(--success); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:6px;"><i class="fa-solid fa-circle-dot"></i> Ringan</p>
+          <p style="font-size:18px; font-weight:800; color:var(--white);">Rp 150.000 <span style="font-size:12px;color:var(--muted);">– Rp 500.000</span></p>
+          <p style="font-size:12px; color:rgba(255,255,255,0.5); margin-top:6px; line-height:1.6;">Penambahan tampilan, teks, warna, field form, filter sederhana, halaman statis.</p>
+        </div>
+        <div style="background:rgba(91,164,207,0.07); border:1px solid rgba(91,164,207,0.2); border-radius:12px; padding:14px;">
+          <p style="font-size:11px; font-weight:700; color:var(--info); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:6px;"><i class="fa-solid fa-circle-half-stroke"></i> Menengah</p>
+          <p style="font-size:18px; font-weight:800; color:var(--white);">Rp 500.000 <span style="font-size:12px;color:var(--muted);">– Rp 2.000.000</span></p>
+          <p style="font-size:12px; color:rgba(255,255,255,0.5); margin-top:6px; line-height:1.6;">Modul baru (halaman + API + DB), sistem voting/polling/reward point, laporan/export PDF.</p>
+        </div>
+        <div style="background:rgba(232,128,48,0.07); border:1px solid rgba(232,128,48,0.2); border-radius:12px; padding:14px;">
+          <p style="font-size:11px; font-weight:700; color:var(--orange); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:6px;"><i class="fa-solid fa-circle"></i> Kompleks</p>
+          <p style="font-size:18px; font-weight:800; color:var(--white);">Rp 2.000.000 <span style="font-size:12px;color:var(--muted);">– Rp 5.000.000+</span></p>
+          <p style="font-size:12px; color:rgba(255,255,255,0.5); margin-top:6px; line-height:1.6;">Sistem baru yang melibatkan alur panjang, multi-role, payment flow baru, atau integrasi eksternal yang kompleks.</p>
+        </div>
+      </div>
+      <div style="padding:12px 16px; background:rgba(255,255,255,0.03); border-radius:10px; border:1px solid rgba(255,255,255,0.06);">
+        <p style="font-size:12px; color:var(--muted); line-height:1.8;">
+          <i class="fa-solid fa-circle-info" style="color:var(--info); margin-right:5px;"></i>
+          Harga penambahan fitur bersifat <strong style="color:rgba(255,255,255,0.6);">estimasi</strong> dan akan dikonfirmasi setelah diskusi kebutuhan. Tidak ada biaya tersembunyi — semua disetujui sebelum pengerjaan dimulai.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="separator"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     APP STORE LISTING
+══════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">05b — Add-On</div>
+  <h2 class="section-title">Listing ke Play Store & App Store</h2>
+  <p class="section-desc">
+    Harga Rp 20.000.000 di atas <strong style="color:var(--white)">belum termasuk</strong> proses listing ke Google Play Store & Apple App Store.
+    Listing adalah tahap opsional terpisah yang dapat dilakukan setelah aplikasi selesai dan diuji.
+  </p>
+
+  <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:20px; margin-bottom:28px;">
+    <div class="card" style="border-color:rgba(76,175,138,0.25);">
+      <div style="display:flex; align-items:center; gap:14px; margin-bottom:16px;">
+        <div style="width:44px;height:44px;border-radius:12px;background:rgba(76,175,138,0.12);display:flex;align-items:center;justify-content:center;">
+          <i class="fa-brands fa-google-play" style="font-size:20px;color:var(--success);"></i>
+        </div>
+        <div>
+          <p style="font-size:15px;font-weight:700;">Google Play Store</p>
+          <p style="font-size:12px;color:var(--muted);">Android</p>
+        </div>
+      </div>
+      <!-- Dev account cost block -->
+      <div style="background:rgba(245,192,24,0.08);border:1px solid rgba(245,192,24,0.3);border-radius:12px;padding:14px 16px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:12px;">
+        <div>
+          <p style="font-size:12px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;"><i class="fa-solid fa-clock" style="margin-right:5px;"></i>Dibayar Diawal</p>
+          <p style="font-size:13px;color:rgba(255,255,255,0.7);">Biaya dev account Google</p>
+          <p style="font-size:11px;color:var(--muted);">Sekali seumur hidup &mdash; tidak berulang</p>
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+          <p style="font-size:20px;font-weight:800;color:var(--gold);line-height:1;">$25</p>
+          <p style="font-size:11px;color:var(--muted);">one-time</p>
+        </div>
+      </div>
+      <ul class="price-list">
+      </ul>
+      <div class="price-total">
+        <span class="tot-lbl">Jasa Listing</span>
+        <span class="tot-val" style="font-size:18px;">Rp 750.000</span>
+      </div>
+    </div>
+
+    <div class="card" style="border-color:rgba(91,164,207,0.25);">
+      <div style="display:flex; align-items:center; gap:14px; margin-bottom:16px;">
+        <div style="width:44px;height:44px;border-radius:12px;background:rgba(91,164,207,0.12);display:flex;align-items:center;justify-content:center;">
+          <i class="fa-brands fa-apple" style="font-size:22px;color:var(--info);"></i>
+        </div>
+        <div>
+          <p style="font-size:15px;font-weight:700;">Apple App Store</p>
+          <p style="font-size:12px;color:var(--muted);">iOS — memerlukan Apple Developer Program</p>
+        </div>
+      </div>
+      <!-- Dev account cost block -->
+      <div style="background:rgba(245,192,24,0.08);border:1px solid rgba(245,192,24,0.3);border-radius:12px;padding:14px 16px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:12px;">
+        <div>
+          <p style="font-size:12px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;"><i class="fa-solid fa-clock" style="margin-right:5px;"></i>Dibayar Diawal</p>
+          <p style="font-size:13px;color:rgba(255,255,255,0.7);">Biaya Apple Developer Program</p>
+          <p style="font-size:11px;color:var(--muted);">Diperbaharui setiap tahun &mdash; ~Rp 1.600.000</p>
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+          <p style="font-size:20px;font-weight:800;color:var(--gold);line-height:1;">$99</p>
+          <p style="font-size:11px;color:var(--muted);">per tahun</p>
+        </div>
+      </div>
+      <ul class="price-list">
+      </ul>
+      <div class="price-total">
+        <span class="tot-lbl">Jasa Listing</span>
+        <span class="tot-val" style="font-size:18px;">Rp 1.500.000</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flow pembayaran listing -->
+  <div style="margin-bottom:28px; background:var(--charcoal); border:1px solid var(--border); border-radius:16px; padding:24px;">
+    <p style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--orange); margin-bottom:16px;"><i class="fa-solid fa-arrows-turn-right"></i> Alur Pembayaran Listing</p>
+    <div class="listing-flow-steps">
+      <div style="background:rgba(245,192,24,0.1); border:1px solid rgba(245,192,24,0.3); border-radius:12px; padding:14px 18px; flex:1; min-width:160px;">
+        <p style="font-size:11px; font-weight:700; color:var(--gold); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px;"><i class="fa-solid fa-1"></i> Sebelum Submit</p>
+        <p style="font-size:13px; color:rgba(255,255,255,0.7);">HDCI membayar biaya registrasi dev account<br/><strong style="color:var(--gold);">Google $25 / Apple $99</strong></p>
+      </div>
+      <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+      <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:14px 18px; flex:1; min-width:160px;">
+        <p style="font-size:11px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px;"><i class="fa-solid fa-2"></i> Proses Review</p>
+        <p style="font-size:13px; color:rgba(255,255,255,0.5);">Google: 1&ndash;3 hari kerja<br/>Apple: 1&ndash;7 hari kerja</p>
+        <p style="font-size:11px; color:rgba(255,255,255,0.3); margin-top:6px;">*Bisa lebih lama tergantung antrean & kebijakan platform</p>
+      </div>
+      <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+      <div style="background:rgba(76,175,138,0.08); border:1px solid rgba(76,175,138,0.3); border-radius:12px; padding:14px 18px; flex:1; min-width:160px;">
+        <p style="font-size:11px; font-weight:700; color:var(--success); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px;"><i class="fa-solid fa-3"></i> Setelah Live</p>
+        <p style="font-size:13px; color:rgba(255,255,255,0.7);">HDCI membayar jasa listing<br/><strong style="color:var(--success);">Setelah app berhasil di-approve</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box" style="margin-bottom:0;">
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <i class="fa-solid fa-circle-info" style="color:var(--orange);font-size:18px;margin-top:2px;flex-shrink:0;"></i>
+      <div>
+        <p style="font-size:14px;font-weight:700;margin-bottom:8px;">Catatan Penting</p>
+        <ul style="list-style:none;padding:0;">
+          <li style="font-size:13px;color:rgba(255,255,255,0.6);padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;gap:8px;"><i class="fa-solid fa-angle-right" style="color:var(--orange);margin-top:2px;"></i> Biaya registrasi dev account (Google & Apple) adalah pengeluaran HDCI Bandung, bukan masuk ke developer.</li>
+          <li style="font-size:13px;color:rgba(255,255,255,0.6);padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;gap:8px;"><i class="fa-solid fa-angle-right" style="color:var(--orange);margin-top:2px;"></i> Jasa listing (Rp 750.000 / Rp 1.500.000) baru dibayar setelah aplikasi berhasil live di store.</li>
+          <li style="font-size:13px;color:rgba(255,255,255,0.6);padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;gap:8px;"><i class="fa-solid fa-angle-right" style="color:var(--orange);margin-top:2px;"></i> Proses listing dapat dimulai kapan saja setelah pembayaran aplikasi utama selesai.</li>
+          <li style="font-size:13px;color:rgba(255,255,255,0.6);padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;gap:8px;"><i class="fa-solid fa-triangle-exclamation" style="color:var(--gold);margin-top:2px;flex-shrink:0;"></i> <span>Estimasi durasi review <strong style="color:rgba(255,255,255,0.75);">bisa lebih lama</strong> dari perkiraan &mdash; bergantung pada antrean & kebijakan platform saat itu. Hal ini di luar kendali developer.</span></li>
+          <li style="font-size:13px;color:rgba(255,255,255,0.6);padding:5px 0;display:flex;gap:8px;"><i class="fa-solid fa-triangle-exclamation" style="color:var(--gold);margin-top:2px;flex-shrink:0;"></i> <span>Selama proses listing, <strong style="color:rgba(255,255,255,0.75);">mungkin diperlukan penyesuaian</strong> pada aplikasi &mdash; seperti perubahan ikon/logo, metadata, atau alur tertentu &mdash; agar memenuhi persyaratan resmi Google Play atau App Store. Penyesuaian ini termasuk dalam lingkup jasa listing.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="separator"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     TENTANG DEVELOPER
+══════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">06 — Developer</div>
+  <h2 class="section-title">Tentang Pengembang</h2>
+
+  <div class="card">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px;">
+      <div>
+        <p style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--orange); margin-bottom:12px;">Keunggulan</p>
+        <ul style="list-style:none; padding:0;">
+          <li style="padding:8px 0; border-bottom:1px solid var(--border); font-size:14px; color:rgba(255,255,255,0.7); display:flex; gap:10px; align-items:flex-start;">
+            <i class="fa-solid fa-check" style="color:var(--success);font-size:14px;flex-shrink:0;margin-top:2px;"></i>
+            Anggota aktif HDCI Bandung — memahami kebutuhan komunitas Harley Davidson dari dalam
+          </li>
+          <li style="padding:8px 0; border-bottom:1px solid var(--border); font-size:14px; color:rgba(255,255,255,0.7); display:flex; gap:10px; align-items:flex-start;">
+            <i class="fa-solid fa-check" style="color:var(--success);font-size:14px;flex-shrink:0;margin-top:2px;"></i>
+            Full-stack developer: mobile (React Native) + backend (Supabase/PostgreSQL)
+          </li>
+          <li style="padding:8px 0; border-bottom:1px solid var(--border); font-size:14px; color:rgba(255,255,255,0.7); display:flex; gap:10px; align-items:flex-start;">
+            <i class="fa-solid fa-check" style="color:var(--success);font-size:14px;flex-shrink:0;margin-top:2px;"></i>
+            Berpengalaman membangun sistem produksi dengan keamanan tinggi (RLS, OWASP)
+          </li>
+          <li style="padding:8px 0; border-bottom:1px solid var(--border); font-size:14px; color:rgba(255,255,255,0.7); display:flex; gap:10px; align-items:flex-start;">
+            <i class="fa-solid fa-check" style="color:var(--success);font-size:14px;flex-shrink:0;margin-top:2px;"></i>
+            Pengerjaan cepat & terstruktur — kualitas dan keamanan setara standar produksi profesional
+          </li>
+          <li style="padding:8px 0; font-size:14px; color:rgba(255,255,255,0.7); display:flex; gap:10px; align-items:flex-start;">
+            <i class="fa-solid fa-check" style="color:var(--success);font-size:14px;flex-shrink:0;margin-top:2px;"></i>
+            Mudah dihubungi untuk revisi, update, dan pemeliharaan jangka panjang
+          </li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--orange); margin-bottom:12px;">Yang Diserahkan</p>
+        <ul style="list-style:none; padding:0;">
+          <li style="padding:8px 0; border-bottom:1px solid var(--border); font-size:14px; color:rgba(255,255,255,0.7); display:flex; gap:10px; align-items:flex-start;">
+            <i class="fa-solid fa-angle-right" style="color:var(--orange);font-size:14px;flex-shrink:0;margin-top:2px;"></i>
+            Source code lengkap (React Native + TypeScript)
+          </li>
+          <li style="padding:8px 0; border-bottom:1px solid var(--border); font-size:14px; color:rgba(255,255,255,0.7); display:flex; gap:10px; align-items:flex-start;">
+            <i class="fa-solid fa-angle-right" style="color:var(--orange);font-size:14px;flex-shrink:0;margin-top:2px;"></i>
+            116 file migrasi database terstruktur & terdokumentasi
+          </li>
+          <li style="padding:8px 0; border-bottom:1px solid var(--border); font-size:14px; color:rgba(255,255,255,0.7); display:flex; gap:10px; align-items:flex-start;">
+            <i class="fa-solid fa-angle-right" style="color:var(--orange);font-size:14px;flex-shrink:0;margin-top:2px;"></i>
+            Panduan deploy & konfigurasi backend
+          </li>
+          <li style="padding:8px 0; border-bottom:1px solid var(--border); font-size:14px; color:rgba(255,255,255,0.7); display:flex; gap:10px; align-items:flex-start;">
+            <i class="fa-solid fa-angle-right" style="color:var(--orange);font-size:14px;flex-shrink:0;margin-top:2px;"></i>
+            Akses ke repository GitHub
+          </li>
+          <li style="padding:8px 0; font-size:14px; color:rgba(255,255,255,0.7); display:flex; gap:10px; align-items:flex-start;">
+            <i class="fa-solid fa-angle-right" style="color:var(--orange);font-size:14px;flex-shrink:0;margin-top:2px;"></i>
+            Pendampingan teknis & free maintenance selama 12 bulan pertama
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER / TANDA TANGAN
+══════════════════════════════════════════════════════════ -->
+<div class="footer">
+  <div class="footer-inner">
+    <div class="footer-name">Proposal Pengembangan Aplikasi</div>
+    <div class="footer-role">HDCI Bandung Mobile Application · Mei 2026</div>
+
+    <div class="footer-contact">
+      <a href="#"><i class="fa-solid fa-users"></i> Anggota HDCI Bandung</a>
+      <a href="#"><i class="fa-solid fa-code"></i> React Native · Supabase · TypeScript</a>
+      <a href="#"><i class="fa-solid fa-location-dot"></i> Bandung, Jawa Barat</a>
+    </div>
+    <p class="footer-note" style="margin-top:32px;">
+      Proposal ini berlaku 30 hari sejak tanggal terbit.<br/>
+      Harga dapat berubah sewaktu-waktu sesuai kesepakatan bersama.<br/>
+      Dibuat pada: Mei 2026
+    </p>
+  </div>
+</div>
+
+</body>
+</html>
