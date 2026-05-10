@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pusat Bantuan — HDCI Bandung</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #E88030;
+      --green: #4CAF8A;
+      --blue: #5BA4CF;
+      --bg: #111111;
+      --card: #1C1C1E;
+      --border: rgba(255,255,255,0.08);
+      --muted: rgba(255,255,255,0.4);
+      --white: #FFFFFF;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #1a1a1a, #111);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+
+    .logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--orange);
+      border-radius: 12px;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-text {
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    header h1 {
+      font-size: clamp(22px, 5vw, 32px);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* ── Layout ── */
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    /* ── Section Title ── */
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    /* ── Primary CTA — gunakan app ── */
+    .app-cta {
+      background: linear-gradient(135deg, rgba(232,128,48,0.15), rgba(232,128,48,0.05));
+      border: 1px solid rgba(232,128,48,0.35);
+      border-radius: 20px;
+      padding: 32px 28px;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .app-cta-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .app-cta h2 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .app-cta p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .step {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      white-space: nowrap;
+    }
+
+    .step-arrow {
+      color: var(--orange);
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .badge-recommended {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 32px 0;
+      color: rgba(255,255,255,0.2);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── Contact Cards ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .contact-card:hover {
+      border-color: rgba(255,255,255,0.18);
+      background: #222;
+    }
+
+    .contact-card.wa {
+      border-color: rgba(76,175,138,0.3);
+      background: rgba(76,175,138,0.06);
+    }
+
+    .contact-card.wa:hover {
+      background: rgba(76,175,138,0.1);
+      border-color: rgba(76,175,138,0.5);
+    }
+
+    .contact-card.email {
+      border-color: rgba(91,164,207,0.3);
+      background: rgba(91,164,207,0.06);
+    }
+
+    .contact-card.email:hover {
+      background: rgba(91,164,207,0.1);
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .card-icon.green { background: rgba(76,175,138,0.15); }
+    .card-icon.blue { background: rgba(91,164,207,0.15); }
+    .card-icon.orange { background: rgba(232,128,48,0.15); }
+
+    .card-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+
+    .card-value {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--white);
+    }
+
+    .card-sub {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .card-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-top: 4px;
+      align-self: flex-start;
+    }
+
+    .card-action.green {
+      background: rgba(76,175,138,0.15);
+      color: var(--green);
+      border: 1px solid rgba(76,175,138,0.3);
+    }
+
+    .card-action.blue {
+      background: rgba(91,164,207,0.15);
+      color: var(--blue);
+      border: 1px solid rgba(91,164,207,0.3);
+    }
+
+    .card-action:hover { opacity: 0.8; }
+
+    /* ── Secretariat ── */
+    .secretariat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 32px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .secretariat-card .card-icon { flex-shrink: 0; }
+
+    .secretariat-body { flex: 1; }
+
+    .secretariat-body h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .secretariat-body p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+      margin-bottom: 6px;
+    }
+
+    /* ── FAQ ── */
+    .faq-list { margin-bottom: 32px; }
+
+    details {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      user-select: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: '＋';
+      font-size: 18px;
+      color: var(--orange);
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    details[open] summary::after { content: '－'; }
+
+    details[open] {
+      border-color: rgba(232,128,48,0.25);
+    }
+
+    .faq-body {
+      padding: 0 20px 18px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+    }
+
+    /* ── Response Time ── */
+    .response-box {
+      background: rgba(91,164,207,0.07);
+      border: 1px solid rgba(91,164,207,0.2);
+      border-radius: 14px;
+      padding: 20px 22px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 32px;
+    }
+
+    .response-box .icon { font-size: 24px; flex-shrink: 0; }
+
+    .response-box p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+    }
+
+    .response-box strong { color: rgba(255,255,255,0.8); }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: rgba(255,255,255,0.2);
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: rgba(255,255,255,0.5); }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      header { padding: 36px 16px 28px; }
+      main { padding: 28px 14px 60px; }
+      .steps { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .step-arrow { transform: rotate(90deg); }
+      .secretariat-card { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ Header ══ -->
+  <header>
+    <div class="logo-wrap">
+      <div class="logo-icon"><i class="fa-solid fa-motorcycle"></i></div>
+      <div class="logo-text">HDCI Bandung</div>
+    </div>
+    <h1>Pusat Bantuan</h1>
+    <p>Harley Davidson Club Indonesia — Chapter Bandung</p>
+  </header>
+
+  <!-- ══ Main ══ -->
+  <main>
+
+    <!-- 1. Primary CTA — pakai tombol di app -->
+    <div class="section-label">Cara Tercepat</div>
+    <div class="section-title">Butuh Bantuan?</div>
+
+    <div class="app-cta">
+      <div class="app-cta-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+      <div class="badge-recommended"><i class="fa-solid fa-star"></i> REKOMENDASI UTAMA</div>
+      <h2>Gunakan Tombol Bantuan di Aplikasi</h2>
+      <p>
+        Cara paling cepat mendapatkan bantuan adalah langsung dari aplikasi HDCI Bandung.
+        Tim admin akan langsung menerima pesan Anda via WhatsApp.
+      </p>
+      <div class="steps">
+        <div class="step"><i class="fa-solid fa-house"></i> Buka Aplikasi</div>
+        <span class="step-arrow">→</span>
+        <div class="step"><i class="fa-solid fa-user"></i> Profil</div>
+        <span class="step-arrow">→</span>
+        <div class="step"><i class="fa-solid fa-life-ring"></i> Bantuan & Dukungan</div>
+        <span class="step-arrow">→</span>
+        <div class="step"><i class="fa-solid fa-comment"></i> Chat Admin</div>
+      </div>
+    </div>
+
+    <div class="divider">atau hubungi langsung</div>
+
+    <!-- 2. Contact Cards -->
+    <div class="section-label">Kontak Admin</div>
+    <div class="contact-grid">
+
+      <!-- WhatsApp -->
+      <div class="contact-card wa">
+        <div class="card-icon green"><i class="fa-brands fa-whatsapp"></i></div>
+        <div>
+          <div class="card-label">WhatsApp Admin</div>
+          <div class="card-value">0812 3450 0176</div>
+          <div class="card-sub">Respons lebih cepat melalui WhatsApp.<br/>Jam kerja: Senin–Jumat, 09:00–17:00 WIB</div>
+        </div>
+        <a class="card-action green" href="https://wa.me/6281234500176?text=Halo%20Admin%20HDCI%20Bandung%2C%20saya%20membutuhkan%20bantuan%20terkait%20aplikasi." target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> Chat Sekarang
+        </a>
+      </div>
+
+    </div>
+
+    <!-- 3. Sekretariat -->
+    <div class="section-label">Lokasi</div>
+    <div class="secretariat-card">
+      <div class="card-icon orange"><i class="fa-solid fa-location-dot"></i></div>
+      <div class="secretariat-body">
+        <h3>Sekretariat HDCI Bandung</h3>
+        <p>Jl. Surapati No. 19, Bandung</p>
+        <p>Jam buka: <strong style="color:rgba(255,255,255,0.7);">Senin–Jumat, 09:00–17:00 WIB</strong></p>
+        <a href="https://maps.google.com/?q=Jl.+Surapati+No.+19+Bandung" target="_blank"
+           style="font-size:13px; color:var(--orange); font-weight:700; text-decoration:none;">
+          <i class="fa-solid fa-map-location-dot"></i> Buka di Google Maps →
+        </a>
+      </div>
+    </div>
+
+    <!-- 4. Response Time -->
+    <div class="response-box">
+      <div class="icon"><i class="fa-regular fa-clock"></i></div>
+      <p>
+        <strong>Estimasi respons:</strong><br/>
+        WhatsApp: biasanya direspons dalam <strong>1–4 jam</strong> di hari kerja.<br/>
+        Untuk laporan terkait privasi & data: maksimal <strong>14 hari kerja</strong> sesuai UU PDP.
+      </p>
+    </div>
+
+    <!-- 5. FAQ -->
+    <div class="section-label">FAQ</div>
+    <div class="section-title">Pertanyaan Umum</div>
+
+    <div class="faq-list">
+
+      <details>
+        <summary>Saya tidak menerima kode OTP WhatsApp</summary>
+        <div class="faq-body">
+          Pastikan nomor HP yang Anda masukkan aktif dan terdaftar di WhatsApp. OTP berlaku selama 5 menit. Jika tidak diterima dalam 2 menit, coba lagi. Jika masih gagal, hubungi admin melalui tombol Bantuan di aplikasi atau WhatsApp di atas.
+        </div>
+      </details>
+
+      <details>
+        <summary>Status pendaftaran saya sudah lama masih "Menunggu Review"</summary>
+        <div class="faq-body">
+          Proses review formulir pendaftaran biasanya membutuhkan waktu 1–3 hari kerja. Jika sudah lebih dari 3 hari, hubungi admin via WhatsApp dengan menyebutkan nama lengkap dan nomor HP yang digunakan saat mendaftar.
+        </div>
+      </details>
+
+      <details>
+        <summary>Saya ingin mengubah data profil (nama, alamat, kendaraan)</summary>
+        <div class="faq-body">
+          Buka aplikasi → Profil → Edit Profil. Beberapa perubahan data sensitif (seperti foto KTP) mungkin memerlukan persetujuan admin. Untuk perubahan nomor HP, hubungi admin langsung.
+        </div>
+      </details>
+
+      <details>
+        <summary>Pembayaran iuran/event saya sudah transfer tapi belum diverifikasi</summary>
+        <div class="faq-body">
+          Verifikasi pembayaran dilakukan secara manual oleh admin, biasanya dalam 1×24 jam kerja. Pastikan Anda sudah mengunggah bukti transfer di aplikasi. Jika lebih dari 24 jam belum diproses, hubungi admin via WhatsApp dengan menyertakan foto bukti transfer.
+        </div>
+      </details>
+
+      <details>
+        <summary>Saya ingin menghapus akun atau data saya</summary>
+        <div class="faq-body">
+          Hubungi admin via WhatsApp <strong>0812 3450 0176</strong> dengan menyebutkan nama lengkap dan nomor HP terdaftar, lalu minta penghapusan akun. Data akan dihapus dalam 30 hari kerja sesuai Kebijakan Privasi kami.
+        </div>
+      </details>
+
+      <details>
+        <summary>Aplikasi crash / tidak bisa dibuka</summary>
+        <div class="faq-body">
+          Coba tutup aplikasi sepenuhnya lalu buka kembali. Pastikan aplikasi sudah versi terbaru dari Play Store / App Store. Jika masih bermasalah, screenshot pesan error-nya dan kirim ke admin via WhatsApp.
+        </div>
+      </details>
+
+      <details>
+        <summary>Bagaimana cara melaporkan pelanggaran privasi atau keamanan data?</summary>
+        <div class="faq-body">
+          Hubungi admin via WhatsApp <strong>0812 3450 0176</strong> dan jelaskan pelanggaran yang terjadi. Kami akan merespons dalam 14 hari kerja sesuai UU PDP No. 27 Tahun 2022.
+        </div>
+      </details>
+
+    </div>
+
+    <!-- Privacy Policy Link -->
+    <div style="text-align:center; padding:20px; background:var(--card); border:1px solid var(--border); border-radius:14px;">
+      <p style="font-size:13px; color:var(--muted); margin-bottom:12px;">Ingin mengetahui bagaimana data Anda dikelola?</p>
+      <a href="./privacy-policy.html"
+         style="font-size:14px; font-weight:700; color:var(--orange); text-decoration:none;">
+        <i class="fa-solid fa-lock"></i> Baca Kebijakan Privasi Kami →
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ══ Footer ══ -->
+  <footer>
+    <p>© 2026 HDCI Bandung — Harley Davidson Club Indonesia Chapter Bandung</p>
+    <p style="margin-top:6px;">
+      <a href="./privacy-policy.html">Kebijakan Privasi</a>
+      &nbsp;·&nbsp;
+      <a href="./support.html">Pusat Bantuan</a>
+    </p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kebijakan Privasi — HDCI Bandung</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #E88030;
+      --bg: #111111;
+      --card: #1C1C1E;
+      --border: rgba(255,255,255,0.08);
+      --muted: rgba(255,255,255,0.4);
+      --white: #FFFFFF;
+      --success: #4CAF8A;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #1a1a1a, #111);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+
+    .logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--orange);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .logo-text {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    header h1 {
+      font-size: clamp(22px, 5vw, 32px);
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: var(--white);
+    }
+
+    header p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .updated-badge {
+      display: inline-block;
+      margin-top: 14px;
+      background: rgba(232,128,48,0.12);
+      border: 1px solid rgba(232,128,48,0.3);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 12px;
+      color: var(--orange);
+      font-weight: 600;
+    }
+
+    /* ── Layout ── */
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    /* ── Intro Box ── */
+    .intro-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 32px;
+      border-left: 4px solid var(--orange);
+    }
+
+    .intro-box p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+    }
+
+    /* ── Section Cards ── */
+    .section-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 20px 24px;
+    }
+
+    .section-num {
+      min-width: 36px;
+      height: 36px;
+      background: rgba(232,128,48,0.12);
+      border: 1px solid rgba(232,128,48,0.25);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--orange);
+    }
+
+    .section-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .section-body {
+      padding: 0 24px 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-body p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.8;
+      margin-top: 14px;
+    }
+
+    .section-body p.separator {
+      font-weight: 700;
+      color: rgba(255,255,255,0.5);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      margin-top: 18px;
+      margin-bottom: -4px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(76,175,138,0.12);
+      border: 1px solid rgba(76,175,138,0.25);
+      border-radius: 6px;
+      padding: 3px 10px;
+      font-size: 12px;
+      color: var(--success);
+      font-weight: 600;
+      margin-top: 12px;
+    }
+
+    .tag.red {
+      background: rgba(255,80,80,0.1);
+      border-color: rgba(255,80,80,0.25);
+      color: #ff6b6b;
+    }
+
+    /* ── Contact Box ── */
+    .contact-box {
+      background: linear-gradient(135deg, rgba(232,128,48,0.08), rgba(232,128,48,0.03));
+      border: 1px solid rgba(232,128,48,0.25);
+      border-radius: 16px;
+      padding: 28px 24px;
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    .contact-box h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+
+    .contact-box p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+    }
+
+    /* ── Support Link ── */
+    .support-link-box {
+      background: rgba(76,175,138,0.07);
+      border: 1px solid rgba(76,175,138,0.2);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .support-link-box a {
+      color: var(--success);
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .support-link-box a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      header { padding: 36px 16px 28px; }
+      main { padding: 28px 14px 60px; }
+      .section-header { padding: 16px 18px; }
+      .section-body { padding: 0 18px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ Header ══ -->
+  <header>
+    <div class="logo-wrap">
+      <div class="logo-icon"><i class="fa-solid fa-motorcycle"></i></div>
+      <div class="logo-text">HDCI Bandung</div>
+    </div>
+    <h1>Kebijakan Privasi</h1>
+    <p>Harley Davidson Club Indonesia — Chapter Bandung</p>
+    <div class="updated-badge">Terakhir diperbarui: Mei 2026</div>
+  </header>
+
+  <!-- ══ Main Content ══ -->
+  <main>
+
+    <!-- Intro -->
+    <div class="intro-box">
+      <p>
+        Kebijakan Privasi ini mengatur bagaimana <strong style="color:rgba(255,255,255,0.85);">HDCI Bandung</strong>
+        mengumpulkan, menggunakan, menyimpan, dan melindungi data pribadi Anda sebagai anggota atau calon anggota komunitas
+        Harley Davidson Club Indonesia – Chapter Bandung. Dengan mendaftar dan menggunakan aplikasi ini,
+        Anda menyatakan telah membaca dan menyetujui kebijakan ini.
+      </p>
+    </div>
+
+    <!-- 1. Pendahuluan -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-title">Pendahuluan & Identitas Pengelola</div>
+      </div>
+      <div class="section-body">
+        <p>Pengelola data: <strong style="color:rgba(255,255,255,0.8);">Pengurus Aktif HDCI Bandung</strong>, berkedudukan di Bandung, Jawa Barat, Indonesia.</p>
+        <p>Kontak DPO (Data Protection Officer): dapat dihubungi melalui fitur "Bantuan & Dukungan" di aplikasi, atau langsung kepada pengurus aktif melalui saluran resmi komunitas.</p>
+        <p>Dengan menggunakan aplikasi ini dan mendaftarkan diri sebagai anggota HDCI Bandung, Anda menyatakan telah membaca, memahami, dan menyetujui seluruh ketentuan dalam Kebijakan Privasi ini.</p>
+      </div>
+    </div>
+
+    <!-- 2. Dasar Hukum -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-title">Dasar Hukum Pemrosesan</div>
+      </div>
+      <div class="section-body">
+        <p>Pemrosesan data pribadi Anda dilaksanakan berdasarkan:</p>
+        <p>• <strong style="color:rgba(255,255,255,0.7);">UU No. 27 Tahun 2022</strong> tentang Pelindungan Data Pribadi (UU PDP) sebagai dasar pemrosesan data secara sah di Indonesia.</p>
+        <p>• <strong style="color:rgba(255,255,255,0.7);">Persetujuan (consent) eksplisit</strong> yang Anda berikan saat pendaftaran melalui centang "Saya setuju" pada formulir registrasi.</p>
+        <p>• <strong style="color:rgba(255,255,255,0.7);">Pelaksanaan perjanjian keanggotaan</strong>, termasuk penerbitan KTA digital dan akses fasilitas komunitas.</p>
+        <p>• <strong style="color:rgba(255,255,255,0.7);">Kepentingan sah (legitimate interest)</strong> untuk menjaga keamanan dan keberlangsungan komunitas.</p>
+      </div>
+    </div>
+
+    <!-- 3. Data yang Dikumpulkan -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-title">Data yang Kami Kumpulkan</div>
+      </div>
+      <div class="section-body">
+        <p class="separator">DATA IDENTITAS</p>
+        <p>• Nama lengkap sesuai KTP</p>
+        <p>• Foto KTP (untuk verifikasi keanggotaan)</p>
+        <p>• Foto SIM (untuk verifikasi keanggotaan)</p>
+        <p>• Foto wajah / close-up (untuk Kartu Tanda Anggota digital)</p>
+        <p>• Tanggal lahir & golongan darah</p>
+
+        <p class="separator">DATA KONTAK</p>
+        <p>• Nomor telepon / WhatsApp aktif — digunakan untuk login OTP & notifikasi</p>
+        <p>• Alamat domisili</p>
+        <p>• Kontak darurat (nama & nomor telepon keluarga/kerabat)</p>
+
+        <p class="separator">DATA KENDARAAN</p>
+        <p>• Tipe & tahun motor Harley Davidson</p>
+        <p>• Plat nomor, nomor rangka, nomor mesin (opsional)</p>
+        <p>• Foto STNK & foto kendaraan</p>
+
+        <p class="separator">DATA TRANSAKSI & KEGIATAN</p>
+        <p>• Riwayat pembayaran iuran tahunan, pendaftaran event, pembelian merchandise</p>
+        <p>• Bukti transfer/pembayaran yang Anda unggah</p>
+        <p>• Riwayat keikutsertaan event</p>
+
+        <p class="separator">DATA TEKNIS</p>
+        <p>• Expo Push Token perangkat Anda — untuk pengiriman notifikasi push</p>
+        <p>• Waktu login & log aktivitas dalam aplikasi</p>
+      </div>
+    </div>
+
+    <!-- 4. Tujuan -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-title">Tujuan & Penggunaan Data</div>
+      </div>
+      <div class="section-body">
+        <p>Data Anda kami gunakan semata-mata untuk:</p>
+        <p>• Verifikasi identitas dan keanggotaan HDCI Bandung</p>
+        <p>• Penerbitan dan pengelolaan Kartu Tanda Anggota (KTA) digital</p>
+        <p>• Pengelolaan kehadiran & pendaftaran event/kegiatan komunitas</p>
+        <p>• Pemrosesan transaksi iuran, merchandise, dan konfirmasi pembayaran</p>
+        <p>• Pengiriman notifikasi penting terkait status keanggotaan dan pesanan</p>
+        <p>• Penegakan aturan dan keamanan dalam komunitas</p>
+        <div class="tag red" style="margin-top:16px;"><i class="fa-solid fa-xmark"></i> Kami TIDAK menggunakan data Anda untuk iklan komersial, profiling komersial, atau pembuatan skor kredit.</div>
+      </div>
+    </div>
+
+    <!-- 5. Berbagi Data -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <div class="section-title">Berbagi Data dengan Pihak Ketiga</div>
+      </div>
+      <div class="section-body">
+        <p>Kami hanya berbagi data Anda dalam kondisi berikut:</p>
+        <p>• <strong style="color:rgba(255,255,255,0.7);">Supabase</strong> — infrastruktur cloud penyimpanan data, server terenkripsi di Singapore. Supabase tidak memiliki hak untuk mengakses data Anda untuk keperluan mereka sendiri.</p>
+        <p>• <strong style="color:rgba(255,255,255,0.7);">Expo Push Notification Service</strong> — hanya Expo Push Token yang digunakan. Tidak ada data identitas yang dikirim.</p>
+        <p>• <strong style="color:rgba(255,255,255,0.7);">Pengurus HDCI Bandung</strong> — dalam lingkup internal komunitas untuk verifikasi keanggotaan.</p>
+        <p>• <strong style="color:rgba(255,255,255,0.7);">Otoritas berwenang</strong> — jika diwajibkan oleh hukum yang berlaku di Indonesia.</p>
+        <div class="tag red" style="margin-top:16px;"><i class="fa-solid fa-xmark"></i> Kami TIDAK menjual, menyewakan, atau memperdagangkan data pribadi Anda kepada pihak mana pun.</div>
+      </div>
+    </div>
+
+    <!-- 6. Keamanan -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <div class="section-title">Keamanan Data</div>
+      </div>
+      <div class="section-body">
+        <p>Kami menerapkan langkah-langkah keamanan teknis berikut:</p>
+        <p>• Enkripsi data saat transit (HTTPS/TLS 1.2+)</p>
+        <p>• Enkripsi data saat diam (at rest) di server Supabase</p>
+        <p>• Row-Level Security (RLS) — setiap pengguna hanya dapat mengakses data miliknya sendiri</p>
+        <p>• Autentikasi berbasis OTP via WhatsApp — tidak ada password yang tersimpan</p>
+        <p>• Akses admin dibatasi hanya untuk pengurus berwenang dengan peran khusus</p>
+        <p>• Log aktivitas admin untuk keperluan audit</p>
+        <p style="margin-top:16px; font-size:13px; color:rgba(255,255,255,0.35);">* Jika Anda mencurigai adanya pelanggaran keamanan, segera hubungi pengurus melalui fitur Bantuan.</p>
+      </div>
+    </div>
+
+    <!-- 7. Retensi -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">07</div>
+        <div class="section-title">Retensi & Penghapusan Data</div>
+      </div>
+      <div class="section-body">
+        <p>Data Anda kami simpan selama:</p>
+        <p>• Masa aktif keanggotaan Anda di HDCI Bandung.</p>
+        <p>• Hingga 3 (tiga) tahun setelah keanggotaan berakhir, untuk keperluan rekap komunitas.</p>
+        <p>• Data transaksi keuangan: minimum 5 (lima) tahun sesuai ketentuan administrasi yang berlaku.</p>
+        <p>Setelah masa retensi berakhir, data dihapus secara permanen atau dianonimkan. Anda dapat mengajukan permohonan penghapusan lebih awal melalui fitur Bantuan. Permohonan diproses dalam 30 hari kerja.</p>
+      </div>
+    </div>
+
+    <!-- 8. Hak -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">08</div>
+        <div class="section-title">Hak-Hak Anda (UU PDP)</div>
+      </div>
+      <div class="section-body">
+        <p>• <strong style="color:rgba(255,255,255,0.7);">Hak Akses</strong> — meminta salinan data pribadi Anda yang kami miliki</p>
+        <p>• <strong style="color:rgba(255,255,255,0.7);">Hak Koreksi</strong> — memperbarui data yang tidak akurat melalui menu Edit Profil</p>
+        <p>• <strong style="color:rgba(255,255,255,0.7);">Hak Penghapusan</strong> — meminta penghapusan data Anda</p>
+        <p>• <strong style="color:rgba(255,255,255,0.7);">Hak Portabilitas</strong> — mendapatkan data Anda dalam format yang dapat dibaca mesin</p>
+        <p>• <strong style="color:rgba(255,255,255,0.7);">Hak Keberatan</strong> — menolak pemrosesan data untuk tujuan tertentu</p>
+        <p>• <strong style="color:rgba(255,255,255,0.7);">Hak Penarikan Persetujuan</strong> — mencabut persetujuan kapan saja (dapat berdampak pada akses layanan)</p>
+        <div class="tag"><i class="fa-solid fa-check"></i> Gunakan fitur "Bantuan & Dukungan" di aplikasi untuk menggunakan hak-hak di atas</div>
+      </div>
+    </div>
+
+    <!-- 9. Cookie -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">09</div>
+        <div class="section-title">Cookie & Teknologi Pelacak</div>
+      </div>
+      <div class="section-body">
+        <p>Aplikasi mobile HDCI Bandung <strong style="color:rgba(255,255,255,0.7);">tidak menggunakan cookie browser</strong>.</p>
+        <p>Teknologi fungsional yang kami gunakan:</p>
+        <p>• <strong style="color:rgba(255,255,255,0.7);">Expo Push Token</strong> — hanya untuk notifikasi push. Dihapus saat logout.</p>
+        <p>• <strong style="color:rgba(255,255,255,0.7);">Local Storage</strong> — menyimpan sesi autentikasi secara aman (Supabase Auth).</p>
+        <div class="tag red" style="margin-top:16px;"><i class="fa-solid fa-xmark"></i> Tidak ada SDK analitik pihak ketiga (Google Analytics, Meta Pixel, dll.) di aplikasi ini.</div>
+      </div>
+    </div>
+
+    <!-- 10. Transfer Data -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">10</div>
+        <div class="section-title">Transfer Data Lintas Batas</div>
+      </div>
+      <div class="section-body">
+        <p>Data Anda disimpan di server <strong style="color:rgba(255,255,255,0.7);">Supabase region Asia Tenggara (Singapore)</strong>, dengan perlindungan sesuai standar internasional.</p>
+        <p>Expo Push Notification Service beroperasi di infrastruktur AWS (Amerika Serikat). Hanya Expo Push Token tanpa data identitas yang dikirimkan ke layanan ini.</p>
+      </div>
+    </div>
+
+    <!-- 11. Anak di Bawah Umur -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">11</div>
+        <div class="section-title">Data Anak di Bawah Umur</div>
+      </div>
+      <div class="section-body">
+        <p>Layanan HDCI Bandung ditujukan untuk individu berusia <strong style="color:rgba(255,255,255,0.7);">17 tahun ke atas</strong>.</p>
+        <p>Kami tidak secara sengaja mengumpulkan data dari individu di bawah usia tersebut. Jika ditemukan, data akan segera dihapus.</p>
+      </div>
+    </div>
+
+    <!-- 12. Perubahan -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">12</div>
+        <div class="section-title">Perubahan Kebijakan Privasi</div>
+      </div>
+      <div class="section-body">
+        <p>Kami dapat memperbarui Kebijakan Privasi ini sewaktu-waktu. Perubahan material akan diberitahukan melalui:</p>
+        <p>• Notifikasi push di aplikasi</p>
+        <p>• Pengumuman di WhatsApp Group resmi komunitas</p>
+        <p>Versi terbaru selalu tersedia di halaman ini. Dengan terus menggunakan aplikasi setelah perubahan, Anda dianggap menyetujui kebijakan yang telah diperbarui.</p>
+      </div>
+    </div>
+
+    <!-- 13. Hubungi Kami -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">13</div>
+        <div class="section-title">Hubungi Kami</div>
+      </div>
+      <div class="section-body">
+        <p>Jika Anda memiliki pertanyaan atau ingin menggunakan hak-hak Anda:</p>
+        <p>• Fitur <strong style="color:rgba(255,255,255,0.7);">"Bantuan & Dukungan"</strong> di aplikasi (Profil → Bantuan)</p>
+        <p>• WhatsApp Group resmi komunitas HDCI Bandung</p>
+        <p>• Pengurus aktif HDCI Bandung secara langsung</p>
+        <p style="margin-top:12px; color:rgba(255,255,255,0.4); font-size:13px;">Kami berkomitmen merespons setiap permintaan dalam waktu 14 hari kerja.</p>
+      </div>
+    </div>
+
+    <!-- Contact / Support Box -->
+    <div class="contact-box">
+      <h3><i class="fa-solid fa-shield-halved"></i> Butuh Bantuan?</h3>
+      <p>Untuk pertanyaan terkait privasi, data, atau akun Anda,<br/>gunakan fitur <strong style="color:rgba(255,255,255,0.7);">Bantuan & Dukungan</strong> di aplikasi HDCI Bandung<br/>atau hubungi pengurus aktif melalui WhatsApp Group resmi.</p>
+    </div>
+
+  </main>
+
+  <!-- ══ Footer ══ -->
+  <footer>
+    <p>© 2026 HDCI Bandung — Harley Davidson Club Indonesia Chapter Bandung</p>
+    <p style="margin-top:6px;">Kebijakan Privasi ini berlaku untuk Aplikasi Mobile HDCI Bandung (Android & iOS)</p>
+  </footer>
+
+</body>
+</html>
