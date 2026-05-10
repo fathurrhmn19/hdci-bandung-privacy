@@ -1,2 +1,2 @@
-# hdci-bandung-privacy
+# hdci-bandung-apps
 HDCI BANDUNG PRIVACY
